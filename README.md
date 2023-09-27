@@ -36,7 +36,7 @@
 
 1. Clone the repository
 ```bash
- git clone https://github.com/PinionsNest/TodoList.git
+ git clone https://github.com/ItsPinion/TodoList.git
 ```
 
 2. Change the directory
@@ -54,7 +54,7 @@ cd TodoList
 
 ## Roadmap
 
-See the [open issues](https://github.com/PinionsNest/TodoList/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/ItsPinion/TodoList/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
@@ -66,7 +66,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE.md) for more informatio
 
 ## Contact
 
-- GitHub [@PinionsNest](https://github.com/PinionsNest)
+- GitHub [@ItsPinion](https://github.com/ItsPinion)
 
 ## Acknowledgements
 
