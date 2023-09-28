@@ -16,7 +16,10 @@ class DataModel {
   }
 
   deleteTodo(index) {
-    this.todoList = [...this.todoList.slice(0, index), ...this.todoList.slice(index + 1)];
+    this.todoList = [
+      ...this.todoList.slice(0, index),
+      ...this.todoList.slice(index + 1),
+    ];
   }
 
   toggleDone(index) {
@@ -38,7 +41,8 @@ class Storage {
   }
 
   load() {
-    this.dataModel.todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+    this.dataModel.todoList =
+      JSON.parse(localStorage.getItem("todoList")) || [];
   }
 }
 
