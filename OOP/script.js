@@ -5,26 +5,22 @@ class TodoItem {
   }
 }
 
-class todo {
+class DataModel {
   constructor() {
     this.todoList = [];
   }
 
-  create(task) {
+  addTodo(task) {
     const todoItem = new TodoItem(task);
     this.todoList.push(todoItem);
   }
 
-  read(index) {
-    return this.todoList[index];
-  }
-
-  update(index, task) {
-    this.todoList[index].task = task;
-  }
-
-  delete(index) {
+  deleteTodo(index) {
     this.todoList = [...this.todoList.slice(0, index), ...this.todoList.slice(index + 1)];
+  }
+
+  toggleDone(index) {
+    this.todoList[index].done = !this.todoList[index].done;
   }
 
   list() {
@@ -33,30 +29,30 @@ class todo {
 }
 
 class Storage {
-  constructor(todo) {
-    this.todo = todo;
+  constructor(dataModel) {
+    this.dataModel = dataModel;
   }
 
   save() {
-    localStorage.setItem("todoList", JSON.stringify(this.todo.list()));
+    localStorage.setItem("todoList", JSON.stringify(this.dataModel.list()));
   }
 
   load() {
-    this.todo.todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+    this.dataModel.todoList = JSON.parse(localStorage.getItem("todoList")) || [];
   }
 }
 
-class DOMUpdate {
-  constructor(todo, storage) {
-    this.todo = todo;
-    this.storage = storage;
+class UI {
+  constructor() {
+    this.dataModel = new DataModel();
+    this.storage = new Storage(this.dataModel);
     this.display = document.getElementById("display");
-    this.form = document.getElementById("form");
     this.input = document.getElementById("input");
+    this.form = document.querySelector("form");
 
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
-      this.todo.create(this.input.value);
+      this.dataModel.addTodo(this.input.value);
       this.input.value = "";
       this.storage.save();
       this.updateUI();
@@ -65,7 +61,7 @@ class DOMUpdate {
 
   updateUI() {
     this.display.textContent = "";
-    this.todo.list().forEach((item, index) => {
+    this.dataModel.list().forEach((item, index) => {
       const text = document.createElement("p");
       const dlt = document.createElement("button");
 
@@ -79,13 +75,13 @@ class DOMUpdate {
       if (item.done) text.style.backgroundColor = "lime";
 
       dlt.addEventListener("click", () => {
-        this.todo.delete(index);
+        this.dataModel.deleteTodo(index);
         this.storage.save();
         this.updateUI();
       });
 
       text.addEventListener("click", () => {
-        item.done = !item.done;
+        this.dataModel.toggleDone(index);
         this.storage.save();
         this.updateUI();
       });
@@ -93,8 +89,6 @@ class DOMUpdate {
   }
 }
 
-const todo = new todo();
-const storage = new Storage(todo);
-const ui = new DOMUpdate(todo, storage);
-storage.load();
+const ui = new UI();
+ui.storage.load();
 ui.updateUI();
