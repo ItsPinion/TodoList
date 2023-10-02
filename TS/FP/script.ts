@@ -18,6 +18,21 @@ export function deleteTodo(todoList: todotype, index: number) {
   return newList;
 }
 
+export function editTodo(todoList: todotype, index: number) {
+  const todoItem = {
+    task: prompt("Enter task:")||todoList[index].task,
+    done: todoList[index].done,
+  };
+
+  const newList = [
+    ...todoList.slice(0, index),
+    todoItem,
+    ...todoList.slice(index + 1),
+  ];
+
+  return newList;
+}
+
 export function toggleDone(todoList: todotype, index: number) {
   const todoItem = {
     task: todoList[index].task,
@@ -33,4 +48,3 @@ export function toggleDone(todoList: todotype, index: number) {
   return newList;
 }
 
-// sideEffect.js

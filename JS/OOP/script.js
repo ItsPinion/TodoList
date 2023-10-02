@@ -22,6 +22,11 @@ class DataModel {
     ];
   }
 
+  editTodo(index) {
+    this.todoList[index].task =
+      prompt("Enter task:") || this.todoList[index].task;
+  }
+
   toggleDone(index) {
     this.todoList[index].done = !this.todoList[index].done;
   }
@@ -67,16 +72,25 @@ class UI {
     this.display.textContent = "";
     this.dataModel.list().forEach((item, index) => {
       const text = document.createElement("p");
+      const edit = document.createElement("button");
       const dlt = document.createElement("button");
 
       this.display.appendChild(text);
+      this.display.appendChild(edit);
       this.display.appendChild(dlt);
       this.display.appendChild(document.createElement("br"));
 
       text.textContent = item.task;
+      edit.textContent = "Edit";
       dlt.textContent = "Delete";
 
       if (item.done) text.style.backgroundColor = "lime";
+
+      edit.addEventListener("click", () => {
+        this.dataModel.editTodo(index);
+        this.storage.save();
+        this.updateUI();
+      });
 
       dlt.addEventListener("click", () => {
         this.dataModel.deleteTodo(index);

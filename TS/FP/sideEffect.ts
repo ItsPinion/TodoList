@@ -1,4 +1,4 @@
-import { addTodo, deleteTodo, toggleDone } from "./script";
+import { addTodo, deleteTodo, editTodo, toggleDone } from "./script";
 
 const form = document.getElementById("form") as HTMLFormElement;
 
@@ -26,16 +26,28 @@ function updateUI(i: number) {
   if (i == 0) display.textContent = "";
 
   const text = document.createElement("p");
+  const edit = document.createElement("button");
   const dlt = document.createElement("button");
 
   display.appendChild(text);
+  display.appendChild(edit);
   display.appendChild(dlt);
   display.appendChild(document.createElement("br"));
 
   text.textContent = todoList[i].task;
+  edit.textContent = "Edit";
   dlt.textContent = "Delete";
 
   if (todoList[i].done) text.style.backgroundColor = "lime";
+
+  edit.addEventListener("click", () => {
+    display.textContent = "";
+
+    const newList = editTodo(todoList, i);
+    localStorage.setItem("todoList", JSON.stringify(newList));
+
+    updateUI(0);
+  });
 
   dlt.addEventListener("click", () => {
     display.textContent = "";

@@ -21,12 +21,23 @@ function addTodo() {
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
-function deleteTodo(index:number) {
+function deleteTodo(index: number) {
   todoList.splice(index, 1);
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
-function toggleDone(index:number) {
+function editTodo(index: number) {
+  const todoItem = {
+    task: prompt("Enter task:") || todoList[index].task,
+    done: todoList[index].done,
+  };
+
+  todoList.splice(index, 1, todoItem);
+
+  localStorage.setItem("todoList", JSON.stringify(todoList));
+}
+
+function toggleDone(index: number) {
   const todoItem = {
     task: todoList[index].task,
     done: !todoList[index].done,
@@ -37,21 +48,30 @@ function toggleDone(index:number) {
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
-
 function updateUI() {
   for (let i = 0; i < todoList.length; i++) {
     if (i == 0) display.textContent = "";
 
     const text = document.createElement("p");
+    const edit = document.createElement("button");
     const dlt = document.createElement("button");
+
     display.appendChild(text);
+    display.appendChild(edit);
     display.appendChild(dlt);
     display.appendChild(document.createElement("br"));
 
     text.textContent = todoList[i].task;
+    edit.textContent = "Edit";
     dlt.textContent = "Delete";
 
     if (todoList[i].done) text.style.backgroundColor = "lime";
+
+    edit.addEventListener("click", () => {
+      display.textContent = "";
+      editTodo(i);
+      updateUI();
+    });
 
     dlt.addEventListener("click", () => {
       display.textContent = "";

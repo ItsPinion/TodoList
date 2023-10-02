@@ -17,6 +17,7 @@ interface IDataModel {
   addTodo(task: string): void;
   deleteTodo(index: number): void;
   toggleDone(index: number): void;
+  editTodo(index: number): void;
   list(): ITodoItem[];
 }
 
@@ -36,6 +37,10 @@ class DataModel implements IDataModel {
       ...this.todoList.slice(0, index),
       ...this.todoList.slice(index + 1),
     ];
+  }
+
+  editTodo(index: number) {
+    this.todoList[index].task = prompt("Enter Task:")||this.todoList[index].task;
   }
 
   toggleDone(index: number) {
@@ -97,15 +102,25 @@ class UI {
     this.dataModel.list().forEach((item, index) => {
       const text = document.createElement("p");
       const dlt = document.createElement("button");
+      const edit = document.createElement("button");
 
       this.display.appendChild(text);
+      this.display.appendChild(edit);
       this.display.appendChild(dlt);
       this.display.appendChild(document.createElement("br"));
 
       text.textContent = item.task;
       dlt.textContent = "Delete";
+      edit.textContent = "Edit";
+
 
       if (item.done) text.style.backgroundColor = "lime";
+
+      edit.addEventListener("click", () => {
+        this.dataModel.editTodo(index);
+        this.storage.save();
+        this.updateUI();
+      });
 
       dlt.addEventListener("click", () => {
         this.dataModel.deleteTodo(index);
