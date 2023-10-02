@@ -6,10 +6,11 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const input = document.getElementById("input") as HTMLInputElement;
-  const todoItem = addTodo(input.value);
-
+  
   const todoList = JSON.parse(localStorage.getItem("todoList") || "[]");
-  localStorage.setItem("todoList", JSON.stringify([...todoList, todoItem]));
+
+  const newList = addTodo(todoList, input.value);
+  localStorage.setItem("todoList", JSON.stringify(newList));
 
   input.value = "";
 

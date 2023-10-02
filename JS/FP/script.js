@@ -3,7 +3,8 @@ export function addTodo(task) {
     task: task,
     done: false,
   };
-  return todoItem;
+  const newList = [...todoList, todoItem];
+  return newList;
 }
 
 export function deleteTodo(todoList, index) {
