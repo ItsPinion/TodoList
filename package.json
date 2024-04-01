@@ -1,8 +1,9 @@
 {
-  "name": "vite-project",
+  "name": "todolist",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.2.0",
   "type": "module",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

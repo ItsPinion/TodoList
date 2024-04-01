@@ -1,74 +1,72 @@
 # TodoList
 
-![Version](https://img.shields.io/badge/version-1.0.3-purple)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Version](https://img.shields.io/badge/version-2.2.0-purple.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-> A simple and interactive task management web application built with JavaScript.
-![TodoList](todo-list-screenshot.png)
+![TodoList Screenshot](https://i.ibb.co/xXLNBfb/image.png)
 
-## Table of Contents
+## Overview
 
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+TodoList is a personal project designed to enhance JavaScript and TypeScript skills. It's a simple web application that allows users to manage their tasks efficiently. With features like adding, editing, and deleting tasks, TodoList is a great tool for personal productivity.
 
 ## Features
 
-- Add new tasks.
-- Mark tasks as done.
-- Delete tasks.
+- **Add Tasks**: Quickly add new tasks to your list with just a few clicks.
+- **Edit Tasks**: Modify your tasks on the fly without any hassle.
+- **Delete Tasks**: Remove any task from your list with a single action.
+- **Task Status**: Mark tasks as done directly from the list.
+- **Local Storage**: Your tasks are saved in your browser's local storage, ensuring they're always available.
+- **Responsive Design**: Enjoy using TodoList on any device, with a clean and intuitive interface.
 
 ## Getting Started
 
 ### Prerequisites
 
-- A modern web-browser like Safari, Chrome, Microsoft-Edge, Mozilla Firefox, etc. 
+- A modern web browser (Chrome, Firefox, Safari, etc.)
 
 ### Installation
 
-1. Clone the repository
-```bash
- git clone https://github.com/PinionsNest/TodoList.git
-```
+1. Clone the repository:
+   ```
+   git clone https://github.com/ItsPinion/TodoList.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd TodoList
+   ```
+3. Install the dependencies:
+   ```
+   npm install
+   ```
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+5. Open your browser and go to `http://localhost:5000` to see the application in action.
 
-2. Change the directory
-```bash
-cd TodoList
-```
+### Building for Production
 
+To build the application for production, run:
+```
+npm run build
+```
+This will create a `dist` directory with the production-ready files.
 
 ## Usage
 
-- Open `index.html` in your favorite browser
-- Add tasks using the input field
-- Mark tasks as done by clicking on them
-- Delete tasks using the delete button
-
-## Roadmap
-
-See the [open issues](https://github.com/PinionsNest/TodoList/issues) for a list of proposed features (and known issues).
+1. **Add a Task**: Type your task into the input field and press "Submit". Your task will appear in the list below.
+2. **Edit a Task**: Click on the "Edit" button next to the task you want to modify. You'll be prompted to enter a new task name.
+3. **Delete a Task**: Click on the "Delete" button next to the task you want to remove.
+4. **Mark a Task as Done**: Click on the task text to toggle its completion status.
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. Please have a look at the [contribution guidelines](CONTRIBUTING.md) first.
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you find any bugs or have suggestions for improvements.
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
+## Live Demo
 
-- GitHub [@PinionsNest](https://github.com/PinionsNest)
-
-## Acknowledgements
-
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-- [Awesome README](https://github.com/matiassingers/awesome-readme)
-- [Shield.io](https://shields.io/)
+Check out the live demo of TodoList at [https://todolist-itspinion.vercel.app/](https://todolist-itspinion.vercel.app/).
