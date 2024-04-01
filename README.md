@@ -1,9 +1,9 @@
 # TodoList
 
-![Version](https://img.shields.io/badge/version-2.2.0-purple.svg)
+![Version](https://img.shields.io/badge/version-2.2.1-purple.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-![TodoList Screenshot](https://i.ibb.co/xXLNBfb/image.png)
+[![TodoList Screenshot](https://i.ibb.co/xXLNBfb/image.png)](https://todolist-itspinion.vercel.app/)
 
 ## Overview
 
