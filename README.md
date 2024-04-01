@@ -1,13 +1,13 @@
 # TodoList
 
-![Version](https://img.shields.io/badge/version-2.2.1-purple.svg)
+![Version](https://img.shields.io/badge/version-2.2.2-purple.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 [![TodoList Screenshot](https://i.ibb.co/xXLNBfb/image.png)](https://todolist-itspinion.vercel.app/)
 
 ## Overview
 
-TodoList is a personal project designed to enhance JavaScript and TypeScript skills. It's a simple web application that allows users to manage their tasks efficiently. With features like adding, editing, and deleting tasks, TodoList is a great tool for personal productivity.
+TodoList is a personal project designed to enhance JavaScript and TypeScript skills, with a special focus on exploring different programming paradigms: Functional, Object-Oriented, and Procedural programming. This web application allows users to manage their tasks efficiently, providing a practical platform to understand and apply these paradigms in real-world scenarios.
 
 ## Features
 
