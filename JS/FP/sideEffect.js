@@ -37,7 +37,10 @@ function updateUI(i) {
   dlt.textContent = "Delete";
 
 
-  if (todoList[i].done) text.style.backgroundColor = "lime";
+  if (todoList[i].done) {
+    text.classList.add("done");
+    text.style.backgroundColor = "#14532d";
+  }
 
   edit.addEventListener("click", () => {
     display.textContent = "";

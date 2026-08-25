@@ -114,7 +114,10 @@ class UI {
       edit.textContent = "Edit";
 
 
-      if (item.done) text.style.backgroundColor = "lime";
+      if (item.done) {
+        text.classList.add("done");
+        text.style.backgroundColor = "#14532d";
+      }
 
       edit.addEventListener("click", () => {
         this.dataModel.editTodo(index);
